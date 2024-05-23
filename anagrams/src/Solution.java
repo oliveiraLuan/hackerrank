@@ -6,8 +6,10 @@ public class Solution {
 
     static boolean isAnagram(String a, String b) {
         // Complete the function
-        Map mapA = getAnagramLetters(a);
-        Map mapB = getAnagramLetters(b);
+        Map mapA = getAnagramLetters(a.toUpperCase());
+        Map mapB = getAnagramLetters(b.toUpperCase());
+
+
 
         Boolean isAnagram = true;
 
@@ -16,6 +18,15 @@ public class Solution {
                 return false;
             }
             if(mapA.get(letter) != mapB.get(letter)){
+                return false;
+            }
+        }
+
+        for(Object letter : mapB.keySet()){
+            if(!mapA.containsKey(letter)){
+                return false;
+            }
+            if(mapA.get(letter) != mapA.get(letter)){
                 return false;
             }
         }
