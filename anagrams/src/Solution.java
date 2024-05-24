@@ -9,8 +9,6 @@ public class Solution {
         Map mapA = getAnagramLetters(a.toUpperCase());
         Map mapB = getAnagramLetters(b.toUpperCase());
 
-
-
         Boolean isAnagram = true;
 
         for(Object letter : mapA.keySet()){
