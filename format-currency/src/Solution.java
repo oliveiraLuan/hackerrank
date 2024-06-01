@@ -7,24 +7,17 @@ public class Solution {
         Scanner scanner = new Scanner(System.in);
         double payment = scanner.nextDouble();
 
-        String paymentString = "" + payment;
         scanner.close();
 
         NumberFormat nfUS = NumberFormat.getInstance(Locale.US);
+        NumberFormat nfIN = NumberFormat.getInstance(new Locale("en", "in"));
         NumberFormat nfCH = NumberFormat.getInstance(Locale.CHINA);
         NumberFormat nfFR = NumberFormat.getInstance(Locale.FRANCE);
 
-        // Write your code here.
-
-        System.out.println("US: " + "$" + nfUS.parse(paymentString));
-        System.out.println("India: " + "Rs." + formatIndian(paymentString));
-        System.out.println("China: " + "￥" + nfCH.parse(paymentString));
-        System.out.println("France: " + nfFR.parse(paymentString) + " €");
-    }
-
-    public static String formatIndian(String value) throws ParseException {
-        NumberFormat nf = NumberFormat.getInstance(Locale.US);
-        return nf.parse(value).toString();
+        System.out.println("US: $" + nfUS.format(payment));
+        System.out.println("India: Rs." + nfIN.format(payment));
+        System.out.println("China: \u00a5" + nfCH.format(payment));
+        System.out.println("France: " + nfFR.format(payment) + "\u20AC");
     }
 }
 
