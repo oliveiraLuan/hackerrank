@@ -25,6 +25,15 @@ public class Solution {
             if(function.equals("Delete")){
                 String index = scanner.next();
                 lista.remove(Integer.parseInt(index));
+            }else if(function.equals("Insert")){
+                String indexAndValue = scanner.nextLine();
+                String[] insert = indexAndValue.split(" ");
+                Integer index = Integer.parseInt(insert[0]);
+                Integer value = Integer.parseInt(insert[1]);
+
+                if(lista.size() > 0 && lista.size() >= index){
+                    lista.add(index, value);
+                }
             }
         }
 
